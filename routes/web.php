@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\Integrations\MailchimpController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\IntegrationsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,5 @@ Route::get('/mailchimp', function () {
     return view('admin.mailchimp');
 });
 
-Route::post('/config-mailchimp', [IntegrationsController::class, 'config_mailchimp']);
-Route::get('/test-mailchimp', [IntegrationsController::class, 'test_mailchimp']);
+Route::post('/config-mailchimp', [MailchimpController::class, 'config_mailchimp']);
+Route::get('/test-mailchimp', [MailchimpController::class, 'test_mailchimp']);
