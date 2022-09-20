@@ -64,12 +64,6 @@
                                         class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save</button>
                             </div>
 
-                            @isset($ping)
-                            <div>
-                                {{ $ping->health_status }}
-                            </div>
-                            @endisset
-
                         </div>
                     </form>
                 </div>
@@ -79,18 +73,18 @@
                         @csrf
                         <div class="overflow-hidden shadow sm:rounded-md">
 
-                            @if (Session::has('ping'))
-                            <x-alert msg="ping" color="green" />
-                            @endif
-
-                            @if (Session::has('error'))
-                            <x-alert msg="error" color="red "/>
-                            @endif
-
                             <div class="bg-white px-4 py-3 sm:px-6">
                                 <button type="submit"
                                         class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Test Connection</button>
                             </div>
+
+                            @if (Session::has('ping'))
+                            <x-alert msg="ping" />
+                            @endif
+
+                            @if (Session::has('error'))
+                            <x-alerterror msg="error" />
+                            @endif
 
                         </div>
                     </form>
@@ -110,7 +104,7 @@
             document.getElementById("alert-3").style.display = "none";
         }
 
-       window.onload = (event) => { setTimeout(hideMe, 5000) };
+       // window.onload = (event) => { setTimeout(hideMe, 5000) };
 
     </script>
 </x-layouts.base>
